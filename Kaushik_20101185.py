@@ -4,7 +4,7 @@ def alphabetaprun(depth,branch,index,player,values,alpha,beta,count):
     if depth == 0:
         count += 1
         return values[index],count
-    if player:
+    if player: #Taking Maximum
         best = MIN
         for i in range(0,branch):
             value,count = alphabetaprun(depth-1,branch,index * 2 + i,False,values,alpha,beta,count)
@@ -13,7 +13,7 @@ def alphabetaprun(depth,branch,index,player,values,alpha,beta,count):
             if beta <= alpha:
                 break
         return best,count
-    else:
+    else: #Taking Minimum
         best = MAX
         for i in range(0,branch):
             value,count = alphabetaprun(depth-1,branch,index * 2 + i,True,values,alpha,beta,count)
